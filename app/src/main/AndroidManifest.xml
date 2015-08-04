@@ -1,0 +1,19 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="pmcg.imti.cursoimti">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme">
+
+        <!--registrando a main_activity como activity principal da aplicação-->
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".Activity02">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
