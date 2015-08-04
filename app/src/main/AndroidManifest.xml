@@ -8,6 +8,9 @@
 
         </activity>
         <activity android:name=".Activity02">
+
+        </activity>
+        <activity android:name=".ActivityCalculator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"></action>
                 <category android:name="android.intent.category.LAUNCHER"></category>
