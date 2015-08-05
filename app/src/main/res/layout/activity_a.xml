@@ -31,4 +31,12 @@
         android:id="@+id/btna"
         />
 
+    <Button
+        android:id="@+id/btnr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resultado"
+        />
+
+
 </LinearLayout>

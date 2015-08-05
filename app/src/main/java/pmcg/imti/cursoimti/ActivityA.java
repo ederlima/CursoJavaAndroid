@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,9 +25,22 @@ public class ActivityA extends AppCompatActivity {
         //intent.putExtra("msg", String.valueOf( textmsg.getText() ) ); //método simples, apenas um extra
         //método com vários objetos
         Bundle bundle = new Bundle();
-        bundle.putString("msg", String.valueOf(textmsg.getText()) );
+        //inserindo objetos implementando Serializable
+        Client cli = new Client();
+        cli.setNome("Jão");
+        cli.setEmail("jao@ta.bao");
+
+        bundle.putSerializable("cli", cli);
+        bundle.putString("msg", String.valueOf(textmsg.getText()));
+
         intent.putExtras(bundle);
+
         startActivity(intent);
+    }
+    @OnClick(R.id.btnr)
+    public void callResult() {
+        Intent resultIntent = new Intent(ActivityA.this, ActivityB.class);
+        startActivityForResult(resultIntent, 1000);
     }
 
     @Override
@@ -40,5 +54,14 @@ public class ActivityA extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         //finish();
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1000) {
+            Bundle bundle = data.getExtras();
+            String msg = bundle.getString("resultText");
+            Toast.makeText(ActivityA.this, msg, Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -17,6 +17,17 @@ public class ActivityB extends AppCompatActivity {
     public void closeActivity() {
         /*Intent intent = new Intent(ActivityB.this, ActivityA.class);
         startActivity(intent);*/
+        //Bundle de retorno
+
+        finish();
+    }
+    @OnClick(R.id.btnr)
+    public void sendResult() {
+        Bundle bundleResult = new Bundle();
+        bundleResult.putString("resultText", "Este é o texto retornado.");
+        Intent intent = new Intent();
+        intent.putExtras(bundleResult);
+        setResult(RESULT_OK, intent);
         finish();
     }
 
@@ -24,12 +35,17 @@ public class ActivityB extends AppCompatActivity {
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_b);
-
+        //Bundle de entrada
         //String msg = (String) getIntent().getExtras().get("msg");
-        Bundle bundle = getIntent().getExtras();
-        String msg = bundle.getString("msg");
-        Toast.makeText(ActivityB.this, msg, Toast.LENGTH_SHORT).show();
+        if(getIntent().getExtras()!=null) {
+            Bundle bundle = getIntent().getExtras();
+            String msg = bundle.getString("msg");
+            Client cli = (Client) bundle.getSerializable("cli");
+            Toast.makeText(ActivityB.this, "Olá " + cli.getNome() + " (" + cli.getEmail() + "), sua mensagem: " + msg, Toast.LENGTH_SHORT).show();
+        }
+
         ButterKnife.bind(this);
+
 
     }
     @Override
