@@ -3,7 +3,9 @@ package pmcg.imti.cursoimti;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.EditText;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -12,9 +14,18 @@ import butterknife.OnClick;
  */
 public class ActivityA extends AppCompatActivity {
 
+    @Bind(R.id.textmsg)
+    EditText textmsg;
+
     @OnClick(R.id.btna)
-    public void onClick() {
+    public void OpenActivity() {
         Intent intent = new Intent(ActivityA.this, ActivityB.class);
+
+        //intent.putExtra("msg", String.valueOf( textmsg.getText() ) ); //método simples, apenas um extra
+        //método com vários objetos
+        Bundle bundle = new Bundle();
+        bundle.putString("msg", String.valueOf(textmsg.getText()) );
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
