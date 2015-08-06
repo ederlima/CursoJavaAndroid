@@ -19,11 +19,13 @@ public class ActivityInsert extends AppCompatActivity {
 
     @OnClick(R.id.btnn)
     public void addName() {
-        Intent intent = new Intent(ActivityInsert.this, ActivityList.class);
+        Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putString("newname", (String) newname.getText().toString());
         intent.putExtras(bundle);
-        startActivity(intent);
+        setResult(RESULT_OK, intent);
+        //startActivity(intent);
+        finish();
     }
 
     @Override

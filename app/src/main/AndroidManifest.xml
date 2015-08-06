@@ -23,13 +23,13 @@
         <!--/passando parametros e resultados entre activities-->
         <!--listas-->
         <activity android:name=".ActivityList">
-
-        </activity>
-        <activity android:name=".ActivityInsert">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"></action>
                 <category android:name="android.intent.category.LAUNCHER"></category>
             </intent-filter>
+        </activity>
+        <activity android:name=".ActivityInsert">
+
         </activity>
         <!--/listas-->
 
