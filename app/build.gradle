@@ -25,3 +25,9 @@ dependencies {
     //inserindo o framework Butter Knife (http://jakewharton.github.io/butterknife/)
     compile 'com.jakewharton:butterknife:7.0.1'
 }
+repositories {
+    mavenCentral()
+    maven {
+        url'http://lorenzo.villani.me/android-cropimage/'
+    }
+}

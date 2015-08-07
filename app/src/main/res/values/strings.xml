@@ -4,4 +4,5 @@
     <string name="btn2">Botão 2</string>
     <string name="btn3">Botão 3</string>
     <string name="btn4">Botão 4</string>
+    <string name="user_name_label">Nome do Usuário</string>
 </resources>
