@@ -38,7 +38,8 @@
             </intent-filter>
         </activity>
         <!--/register-->
-
+        <!--crop-->
+        <activity android:name="com.android.camera.CropImage"></activity>
 
 
     </application>

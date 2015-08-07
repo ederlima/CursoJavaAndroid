@@ -18,16 +18,17 @@ android {
         }
     }
 }
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    //inserindo o framework Butter Knife (http://jakewharton.github.io/butterknife/)
-    compile 'com.jakewharton:butterknife:7.0.1'
-}
 repositories {
     mavenCentral()
     maven {
         url'http://lorenzo.villani.me/android-cropimage/'
     }
 }
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    //inserindo o framework Butter Knife (http://jakewharton.github.io/butterknife/)
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'me.villani.lorenzo.android:android-cropimage:1.1.1'
+}
+
