@@ -32,15 +32,20 @@
 
         <!--register-->
         <activity android:name=".registerActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"></action>
-                <category android:name="android.intent.category.LAUNCHER"></category>
-            </intent-filter>
+
         </activity>
         <!--/register-->
         <!--crop-->
         <activity android:name="com.android.camera.CropImage"></activity>
 
+        <!--lista personalizada-->
+        <activity android:name=".ActivityCustomList">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+        </activity>
+        <!--/lista personalizada-->
 
     </application>
 
