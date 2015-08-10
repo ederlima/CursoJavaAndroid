@@ -19,4 +19,7 @@ public class DBAplication extends Application {
 
 
     }
+    private void runMigrations(Sprinkles sprinkles) {
+        sprinkles.addMigration(new CreateUserMigration());
+    }
 }
