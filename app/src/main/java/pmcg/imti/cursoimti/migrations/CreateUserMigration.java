@@ -5,12 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 import se.emilsjolander.sprinkles.Migration;
 
 /**
- * Created by aluno on 07/08/15.
+ * Created by Virmerson on 31/07/15.
  */
 public class CreateUserMigration extends Migration {
 
+
     @Override
-    protected void doMigration(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CRETATE TABLE user (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT)");
+    protected void doMigration(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE Users (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,email TEXT)");
     }
 }
