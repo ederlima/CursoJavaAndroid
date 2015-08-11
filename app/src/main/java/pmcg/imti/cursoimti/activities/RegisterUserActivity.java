@@ -51,7 +51,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
         //Acessar Extra para alterar
         if(getIntent().getExtras()!=null) {
-            user=.+ (User) getIntent().getExtras().getSerializable(USER_KEY);
+            user= (User) getIntent().getExtras().getSerializable(USER_KEY);
             userName.setText(user.name);
             userEmail.setText(user.email);
 
