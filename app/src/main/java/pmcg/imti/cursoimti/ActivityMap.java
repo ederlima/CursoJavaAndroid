@@ -12,6 +12,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import pmcg.imti.cursoimti.Localizador;
+
 import butterknife.ButterKnife;
 
 /**
@@ -20,6 +25,7 @@ import butterknife.ButterKnife;
 public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback {
 
     Marker marker = null;
+    List<LatLng> locais = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedStateInstance) {
@@ -30,6 +36,18 @@ public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback
 
         MapFragment map = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         map.getMapAsync(this);
+
+        //
+        Localizador localizador = new Localizador(ActivityMap.this);
+        LatLng ad1 = localizador.getCoordenada("Avenida Afonso Pena, 1000, Campo Grande, Mato Grosso do Sul");
+        LatLng ad2 = localizador.getCoordenada("Avenida Afonso Pena, 1300, Campo Grande, Mato Grosso do Sul");
+        LatLng ad3 = localizador.getCoordenada("Avenida Afonso Pena, 1600, Campo Grande, Mato Grosso do Sul");
+        LatLng ad4 = localizador.getCoordenada("Avenida Afonso Pena, 1900, Campo Grande, Mato Grosso do Sul");
+
+        locais.add(ad1);
+        locais.add(ad2);
+        locais.add(ad3);
+        locais.add(ad4);
     }
 
     @Override
@@ -37,6 +55,15 @@ public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback
         googleMap.setMyLocationEnabled(true);
 
 
+
+        for(LatLng local : locais) {
+            googleMap.addMarker( new MarkerOptions().position(local));
+        }
+
+        
+
+
+        //
         googleMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location location) {
@@ -48,7 +75,7 @@ public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback
 
                 //LatLng local = new LatLng(-20.505312, -54.597478);
                 LatLng local = new LatLng(location.getLatitude(), location.getLongitude());
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(local, 15));
+
                 marker = googleMap.addMarker(new MarkerOptions().position(local));
             }
 
